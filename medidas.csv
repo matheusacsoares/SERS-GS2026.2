@@ -1,0 +1,5 @@
+medida,aparelho,reducao_pct,origem
+Regua com chave para cortar o standby a noite,"Standby (aparelhos em espera)",60,Premissa: corta 60% do tempo em espera; A VALIDAR
+Banho de 30 para 20 minutos,Chuveiro eletrico,33,Calculo direto: 20/30 do tempo
+Ar-condicionado a 24 C e filtro limpo,Ar-condicionado split 12000 BTU,10,Premissa conservadora; A VALIDAR
+Trocar a geladeira por modelo Selo Procel A,Geladeira 2 portas antiga,30,Modelos eficientes 350-400 kWh/ano (~30 kWh/mes) contra ~43 kWh/mes da antiga; custo do aparelho NAO incluido

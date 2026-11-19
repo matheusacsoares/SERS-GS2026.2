@@ -1,0 +1,11 @@
+nome,valor,unidade,origem,consulta
+tarifa_rs_kwh,0.851,R$/kWh,ANEEL tarifa residencial B1 sem impostos (R$ 851/MWh; fonte secundaria; a conta real e maior com ICMS e PIS/COFINS),nov/2026
+media_nacional_kwh_mes,181.8,kWh/mes,EPE consumo residencial medio (fonte secundaria),nov/2026
+geracao_kwh_kwp_mes,127,kWh/kWp/mes,Estimativa media de geracao fotovoltaica no Brasil (HSP x 30 x 0.8; fonte secundaria),nov/2026
+custo_rs_kwp,3800,R$/kWp,Meio da faixa de R$ 3400-4200/kWp para sistemas residenciais em 2026 (fontes secundarias),nov/2026
+fator_economia_solar,0.7,fracao,Premissa conservadora: o solar evita ~70% do valor da energia compensada (Fio B da Lei 14.300 e custos que continuam); A VALIDAR,nov/2026
+disponibilidade_kwh,50,kWh/mes,Custo de disponibilidade minimo cobrado mesmo com solar (bifasico = 50 kWh; monofasico 30; trifasico 100),nov/2026
+fator_emissao_rede,0.0599,kgCO2/kWh,Fator medio da rede brasileira (59.9 kg/MWh; BEN 2025 ano-base 2024; fonte secundaria),nov/2026
+fator_emissao_solar,0.043,kgCO2/kWh,Emissao no ciclo de vida do solar FV (NREL 2021: 43 gCO2e/kWh; faixa 25-43),nov/2026
+limite_standby_pct,12,%,Teto da faixa de standby residencial citada pelo Procel (ate 12% do consumo),nov/2026
+vida_util_anos,25,anos,Vida util tipica dos modulos fotovoltaicos (premissa),nov/2026

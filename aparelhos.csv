@@ -1,0 +1,13 @@
+aparelho,tipo,potencia_w,horas_dia,dias_mes,fator_ciclo,fp,origem
+Chuveiro eletrico,uso,5500,0.5,30,1.0,1.00,Potencia 5500 W e 30 min/dia (Procel via imprensa: 88 kWh/mes para 32 min); resistivo
+Ar-condicionado split 12000 BTU,uso,1450,2,30,0.6,0.90,Potencia da tabela Eletrobras/Procel (1450 W); fator de ciclo 0.6 = estimativa (compressor desliga no termostato); FP estimado
+Geladeira 2 portas antiga,base,150,24,30,0.4,0.80,Faixa tipica 40-57 kWh/mes (Procel/IDEC); 150 W x 40% do tempo = 43 kWh; FP estimado (motor)
+Televisao LED 50 pol,uso,100,5,30,1.0,0.90,Potencia tipica de mercado (estimativa); FP estimado
+Computador desktop,uso,150,4,30,1.0,0.90,Potencia tipica de mercado (estimativa); FP estimado
+Maquina de lavar roupa,uso,500,1,12,1.0,0.80,Potencia tipica (estimativa); 12 lavagens/mes; FP estimado (motor)
+Ferro de passar,uso,1000,0.5,8,1.0,1.00,Faixa 750-2000 W (Procel via imprensa); resistivo
+Iluminacao LED (10 lampadas),uso,90,5,30,1.0,0.90,10 x 9 W (estimativa); FP estimado
+Micro-ondas,uso,1200,0.2,30,1.0,0.90,Potencia tipica (estimativa); 12 min/dia; FP estimado
+Roteador e modem,base,12,24,30,1.0,0.90,Potencia tipica (estimativa); ligado o mes todo
+Ventilador,uso,60,6,30,1.0,0.85,Potencia tipica (estimativa); FP estimado (motor)
+Standby (aparelhos em espera),standby,55,24,30,1.0,0.80,Estimativa deste cenario (varios aparelhos em espera); resultado deve ser comparado com a faixa de 5-12% da literatura
