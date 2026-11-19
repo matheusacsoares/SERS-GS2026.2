@@ -37,8 +37,8 @@ dimensionar o solar depois, já com o consumo menor.
 |---|---|---|
 | 1 | Consumo por aparelho: kWh/mês, R$/mês e % da conta | E = P × t |
 | 2 | Diagnóstico: vs. média nacional, maior consumo, consumo base, standby, potências P, Q, S e fator de potência | Aula de SERS (triângulo das potências) |
-| 3 | Comparação **rede × solar**: conta, investimento, retorno, CO₂ | Premissas em `dados/parametros.csv` |
-| 4 | Simula medidas de eficiência e recalcula o consumo e o solar necessário | `dados/medidas.csv` |
+| 3 | Comparação **rede × solar**: conta, investimento, retorno, CO₂ | Premissas em `parametros.csv` |
+| 4 | Simula medidas de eficiência e recalcula o consumo e o solar necessário | `medidas.csv` |
 | 5 | Analisa **a conta do usuário** (digita os kWh/mês) | Mesmo modelo |
 
 Entradas inválidas (texto, negativo, fora da faixa) são tratadas com mensagem de erro e nova pergunta.
