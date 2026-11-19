@@ -1,8 +1,4 @@
 """Assistente de consumo de energia (SERS - GS 2026.2).
-
-Uso:
-    python src/assistente.py          menu interativo
-    python src/assistente.py --demo   mostra todas as analises sem perguntar nada
 """
 import sys
 
