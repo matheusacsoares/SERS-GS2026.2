@@ -65,18 +65,6 @@ Requisito: **Python 3.9+** (só biblioteca padrão; `matplotlib` é opcional, s�
 # menu interativo
 python src/assistente.py
 
-# mostra todas as análises sem perguntar nada (usado no vídeo)
-python src/assistente.py --demo
-
-# testes automáticos (20 testes)
-python -m unittest discover -s testes -v
-
-# gráfico (opcional): pip install matplotlib
-python src/grafico.py
-```
-
-> Os textos do terminal não usam acentos de propósito, para funcionar em qualquer terminal do Windows.
-
 ## 4. Estrutura do repositório
 
 ```
@@ -226,13 +214,7 @@ fontes primárias antes da entrega final.**
 - **Com usuários (informal):** o assistente foi apresentado a familiares e amigos, sem registro individual. A impressão geral foi de que a ideia é útil e tem uso real no dia a dia. Pediram mais clareza nos dados e acharam alguns termos muito técnicos; explicamos que isso é requisito da disciplina. Também sugeriram uma interface mais amigável no futuro.
 - **Próximos passos:** simplificar a linguagem para o usuário final e criar uma interface (tela ou aplicativo).
 
-## 11. Uso de inteligência artificial
-
-O assistente **Claude (Anthropic)** foi usado como apoio para estruturar o código, os testes e os textos
-deste repositório. As fórmulas vêm do material de aula de SERS, os dados e as premissas têm a origem
-indicada, e o grupo revisou, executou e testou o código antes da entrega _[confirmar antes de enviar]_.
-
-## 12. Referências
+## 11. Referências
 
 Consultadas em **nov/2026**.
 
