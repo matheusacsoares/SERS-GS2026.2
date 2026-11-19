@@ -13,8 +13,11 @@ import csv
 import math
 from pathlib import Path
 
-RAIZ = Path(__file__).resolve().parent.parent
-DADOS = RAIZ / "dados"
+AQUI = Path(__file__).resolve().parent
+RAIZ = AQUI.parent
+# Procura os CSVs em ../dados, em ./dados ou na mesma pasta do codigo.
+DADOS = next((p for p in (RAIZ / "dados", AQUI / "dados")
+              if (p / "parametros.csv").exists()), AQUI)
 HORAS_MES = 720  # 24 h x 30 dias, usado para converter kWh/mes em potencia media
 
 
