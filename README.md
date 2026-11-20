@@ -54,8 +54,6 @@ from calculos import ler_parametros, dimensionar_solar
 resposta = dimensionar_solar(consumo_kwh=250, p=ler_parametros())  # dicionário com kWp, custo, payback, CO2
 ```
 
-_[Descrever aqui como/onde a integração aparece no assistente do grupo, ou, se o assistente de energia for
-apresentado como módulo independente, dizer isso claramente.]_
 
 ## 3. Como rodar
 
@@ -64,10 +62,10 @@ Requisito: **Python 3.9+** (só biblioteca padrão; `matplotlib` é opcional, s�
 ```bash
 # menu interativo
 python src/assistente.py
-
+```
 ## 4. Estrutura do repositório
 
-```
+
 dados/
   aparelhos.csv       cenário da residência (potência, horas, dias, fator de ciclo, fp, origem)
   parametros.csv      tarifa, média nacional, solar, emissões (com origem e data de consulta)
@@ -84,7 +82,7 @@ resultados/
   grafico_consumo.png gráfico gerado
 docs/
   roteiro_video.md    roteiro do vídeo de até 3 minutos
-```
+
 
 ## 5. Cenário estimado (tabela de entrada)
 
@@ -209,8 +207,6 @@ fontes primárias antes da entrega final.**
 
 ## 10. Testes
 
-- **Automáticos:** `python -m unittest discover -s testes -v` (20 testes: fórmulas, triângulo das potências,
-  solar, medidas e entradas inválidas).
 - **Com usuários (informal):** o assistente foi apresentado a familiares e amigos, sem registro individual. A impressão geral foi de que a ideia é útil e tem uso real no dia a dia. Pediram mais clareza nos dados e acharam alguns termos muito técnicos; explicamos que isso é requisito da disciplina. Também sugeriram uma interface mais amigável no futuro.
 - **Próximos passos:** simplificar a linguagem para o usuário final e criar uma interface (tela ou aplicativo).
 
