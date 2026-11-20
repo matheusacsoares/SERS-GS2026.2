@@ -11,9 +11,9 @@
 | Maria Luiza Vieira de Freitas | 571535 |
 | Matheus Arruda Camara Soares | 571594 |
 
-> **Contribuição do SERS neste repositório:** tudo que está nesta pasta (dados, cálculos, assistente,
-> testes, análise e documentação). O assistente é **independente** de qualquer outra entrega do grupo
-> e roda sozinho, apenas com Python.
+> **Contribuição do SERS neste repositório:** tudo que está aqui (dados, cálculos, assistente, análise e
+> documentação). O assistente de energia é **independente** de qualquer outra entrega do grupo e roda
+> sozinho, apenas com Python.
 
 ---
 
@@ -45,44 +45,46 @@ Entradas inválidas (texto, negativo, fora da faixa) são tratadas com mensagem 
 
 ### Integração com o Citizen Assist AI
 
-O módulo de energia foi feito para ser usado pelo assistente do grupo: `src/calculos.py` é uma biblioteca
-sem dependências, e o `assistente.py` mostra como as respostas são montadas (diagnóstico, comparação rede × solar,
-medidas, conta do usuário). Para integrar ao Citizen Assist AI, basta importar as funções, por exemplo:
+O módulo de energia roda sozinho (`assistente.py`) e foi organizado para ser chamado por outro assistente:
+`calculos.py` é uma biblioteca sem dependências, e o `assistente.py` mostra como as respostas são montadas
+(diagnóstico, comparação rede × solar, medidas, conta do usuário). Para usar as mesmas contas em outro programa,
+basta importar as funções, por exemplo:
 
 ```python
 from calculos import ler_parametros, dimensionar_solar
 resposta = dimensionar_solar(consumo_kwh=250, p=ler_parametros())  # dicionário com kWp, custo, payback, CO2
 ```
 
+Neste repositório a contribuição de SERS é demonstrada pelo próprio `assistente.py`. A ligação com os módulos das
+outras disciplinas não está implementada aqui.
 
 ## 3. Como rodar
 
-Requisito: **Python 3.9+** (só biblioteca padrão; `matplotlib` é opcional, só para o gráfico).
+Requisito: **Python 3.9+** (só biblioteca padrão).
 
 ```bash
 # menu interativo
-python src/assistente.py
+python assistente.py
+
+# mostra todas as análises sem perguntar nada
+python assistente.py --demo
 ```
+
+Os arquivos `aparelhos.csv`, `parametros.csv` e `medidas.csv` precisam estar na mesma pasta de `calculos.py`
+e `assistente.py`.
+
+> Os textos do terminal não usam acentos de propósito, para funcionar em qualquer terminal do Windows.
+
 ## 4. Estrutura do repositório
 
-
-dados/
-  aparelhos.csv       cenário da residência (potência, horas, dias, fator de ciclo, fp, origem)
-  parametros.csv      tarifa, média nacional, solar, emissões (com origem e data de consulta)
-  medidas.csv         medidas de eficiência e premissa de redução
-src/
-  calculos.py         fórmulas, validação dos dados, diagnóstico, solar
-  assistente.py       menu interativo e modo --demo
-  grafico.py          gráfico (opcional)
-testes/
-  test_calculos.py    20 testes automáticos
-
-resultados/
-  saida_demo.txt      saída completa do modo --demo
-  grafico_consumo.png gráfico gerado
-docs/
-  roteiro_video.md    roteiro do vídeo de até 3 minutos
-
+```
+README.md         este arquivo
+assistente.py     menu interativo e modo --demo
+calculos.py       fórmulas, validação dos dados, diagnóstico, solar
+aparelhos.csv     cenário da residência (potência, horas, dias, fator de ciclo, fp, origem)
+parametros.csv    tarifa, média nacional, solar, emissões (com origem e data de consulta)
+medidas.csv       medidas de eficiência e premissa de redução
+```
 
 ## 5. Cenário estimado (tabela de entrada)
 
@@ -90,7 +92,7 @@ docs/
 > dos aparelhos e concede o Selo Procel aos mais eficientes. Usado aqui como fonte de potência e consumo típicos.
 
 Residência de exemplo: família pequena, casa com chuveiro elétrico, um ar-condicionado split e geladeira antiga.
-**Os valores são estimativas justificadas, não medições.** A coluna *origem* de `dados/aparelhos.csv` diz de onde
+**Os valores são estimativas justificadas, não medições.** A coluna *origem* de `aparelhos.csv` diz de onde
 veio cada número. O usuário pode trocar a tabela pelos aparelhos da própria casa.
 
 | Aparelho | Tipo | Potência (W) | Horas/dia | Dias/mês | Fator de ciclo | kWh/mês |
@@ -135,7 +137,7 @@ payback (anos)    = investimento ÷ (economia por mês × 12)
 
 ## 7. Resultados do cenário
 
-Saída completa em `resultados/saida_demo.txt`. Resumo:
+Resultados do modo `python assistente.py --demo`. Resumo:
 
 **Diagnóstico**
 
@@ -178,9 +180,9 @@ de 1,97 para 1,47 kWp e o investimento de R$ 7.499 para R$ 5.586.
 
 ## 9. Premissas, origem dos dados e limitações
 
-As origens e datas de consulta estão em `dados/parametros.csv`. **Todas as fontes numéricas abaixo vieram de
-fontes secundárias (notícias e tabelas que citam ANEEL, EPE, MCTI, Procel) e precisam ser confirmadas nas
-fontes primárias antes da entrega final.**
+As origens e datas de consulta estão em `parametros.csv`. **Todas as fontes numéricas abaixo vieram de
+fontes secundárias (notícias e tabelas que citam ANEEL, EPE, MCTI, Procel) e não foram conferidas nas
+fontes primárias.**
 
 | Parâmetro | Valor | Observação |
 |---|---|---|
@@ -205,9 +207,9 @@ fontes primárias antes da entrega final.**
 - A redução de cada medida de eficiência é premissa (a da geladeira e a do banho têm base; a do standby e a do ar-condicionado são **a validar**).
 - O assistente não substitui orçamento de instalador, estudo da distribuidora nem laudo técnico.
 
-## 10. Testes
+## 10. Testes com usuários
 
-- **Com usuários (informal):** o assistente foi apresentado a familiares e amigos, sem registro individual. A impressão geral foi de que a ideia é útil e tem uso real no dia a dia. Pediram mais clareza nos dados e acharam alguns termos muito técnicos; explicamos que isso é requisito da disciplina. Também sugeriram uma interface mais amigável no futuro.
+- **Situação testada:** o assistente foi apresentado a familiares e amigos, sem registro individual. A impressão geral foi de que a ideia é útil e tem uso real no dia a dia. Pediram mais clareza nos dados e acharam alguns termos muito técnicos; explicamos que isso é requisito da disciplina. Também sugeriram uma interface mais amigável no futuro.
 - **Próximos passos:** simplificar a linguagem para o usuário final e criar uma interface (tela ou aplicativo).
 
 ## 11. Referências
@@ -223,4 +225,4 @@ Consultadas em **nov/2026**.
 - IDEC, cartilha de energia (consumo de geladeiras): https://idec.org.br/print/24463
 - Chuveiro de 5.500 W por 30 min = 88 kWh/mês (Procel, via imprensa): https://concursosnobrasil.com/10-aparelhos-e-eletrodomesticos-que-consomem-muita-energia-veja-quais-sao/
 - NREL, *Life Cycle Greenhouse Gas Emissions from Solar Photovoltaics*: https://www.nrel.gov/docs/fy13osti/56487.pdf ; NREL 2021 (43 g CO₂e/kWh, via https://skepticalscience.com/news.php?n=6109 ) ; Drawdown, solar distribuído (25,5–42,9 g CO₂e/kWh): https://drawdown.org/explorer/deploy-distributed-solar-pv
-- Procel, standby de até 12% do consumo residencial (fonte secundária; confirmar no Procel).
+- Procel, standby de até 12% do consumo residencial (fonte secundária).
