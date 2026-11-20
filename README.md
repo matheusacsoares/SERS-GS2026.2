@@ -43,7 +43,7 @@ dimensionar o solar depois, já com o consumo menor.
 
 Entradas inválidas (texto, negativo, fora da faixa) são tratadas com mensagem de erro e nova pergunta.
 
-### Integração com o Citizen Assist AI
+### Como o módulo se encaixa no Citizen Assist AI
 
 O módulo de energia roda sozinho (`assistente.py`) e foi organizado para ser chamado por outro assistente:
 `calculos.py` é uma biblioteca sem dependências, e o `assistente.py` mostra como as respostas são montadas
@@ -209,7 +209,8 @@ fontes primárias.**
 
 ## 10. Testes com usuários
 
-- **Situação testada:** o assistente foi apresentado a familiares e amigos, sem registro individual. A impressão geral foi de que a ideia é útil e tem uso real no dia a dia. Pediram mais clareza nos dados e acharam alguns termos muito técnicos; explicamos que isso é requisito da disciplina. Também sugeriram uma interface mais amigável no futuro.
+- **Situação testada:** o assistente foi apresentado a familiares e amigos, sem registro individual. A impressão geral foi de que a ideia é útil e tem uso real no dia a dia. Pediram mais clareza nos dados e acharam alguns termos muito técnicos. Também sugeriram uma interface mais amigável no futuro.
+- **Ajustes realizados:** até a entrega não alteramos o código a partir desses comentários; eles ficaram como melhorias futuras.
 - **Próximos passos:** simplificar a linguagem para o usuário final e criar uma interface (tela ou aplicativo).
 
 ## 11. Referências
